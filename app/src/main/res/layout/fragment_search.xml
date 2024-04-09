@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    >
+
+    <androidx.appcompat.widget.SearchView
+        android:id='@+id/searchViewMain'
+        android:layout_width="match_parent"
+        android:layout_height="50sp"
+        android:layout_margin="15sp"
+        android:background="@drawable/search_round"
+        app:iconifiedByDefault="false"
+        android:textAppearance="@color/white"
+        android:textColor="@color/white"
+        app:queryHint="Pulp Fiction, The Office ...."
+        />
+
+    <ListView
+        android:id="@+id/listViewFilm"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="1sp"
+        tools:listitem="@layout/item_pop_film"
+        />
+
+</LinearLayout>
