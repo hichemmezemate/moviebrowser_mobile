@@ -22,7 +22,8 @@ public class Film {
 
     private String poster_path;
 
-
+    public Film() {
+    }
 
     public Film(Integer id, String title, String release_date, String overview, Integer vote_average, String original_language, String poster_path) {
         this.id = id;
