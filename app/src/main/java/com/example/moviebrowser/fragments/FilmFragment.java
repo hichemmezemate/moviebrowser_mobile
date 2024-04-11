@@ -78,7 +78,6 @@ public class FilmFragment extends Fragment implements SearchView.OnQueryTextList
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //listener.onReceiveFilmInfo(films
-                //.get(position));
+        listener.onReceiveFilmInfo(films.get(position));
     }
 }
