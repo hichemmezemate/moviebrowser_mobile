@@ -34,10 +34,11 @@ public class MainActivity extends AppCompatActivity  implements SearchObserver {
 
     @Override
     public void onReceiveFilmInfo(Film film) {
-        detailFragment.onSelectFilm(film);
         getSupportFragmentManager().beginTransaction()
                 .hide(filmFragment)
                 .show(detailFragment)
                 .commit();
+        detailFragment.onSelectFilm(film);
+
     }
 }

@@ -17,7 +17,7 @@ import com.example.moviebrowser.services.Api;
 
 public class DetailFragment extends Fragment {
 
-    private TextView title, overview;
+    private TextView title, overview, releaseDate, voteAverage;
     private ImageView imageView;
     private Api api;
 
@@ -29,6 +29,8 @@ public class DetailFragment extends Fragment {
         title = v.findViewById(R.id.filmItemTitle);
         overview = v.findViewById(R.id.filmItemDescription);
         imageView = v.findViewById(R.id.imageView5);
+        releaseDate = v.findViewById(R.id.filmReleaseDate);
+        voteAverage = v.findViewById(R.id.filmVoteAverage);
 
         return v;
 
@@ -37,6 +39,8 @@ public class DetailFragment extends Fragment {
     public void onSelectFilm(Film film) {
         title.setText(film.getTitle());
         overview.setText(film.getOverview());
+        releaseDate.setText("Date de sortie: " + film.getRelease_date());
+        voteAverage.setText(film.getVote_average()+"/10");
         Api.loadFilmPoster(getContext(), film.getPoster_path(), imageView);
     }
 }

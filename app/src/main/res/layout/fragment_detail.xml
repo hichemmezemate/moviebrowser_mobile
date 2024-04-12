@@ -53,16 +53,28 @@
         tools:layout_editor_absoluteY="774dp" />
 
     <TextView
-        android:id="@+id/textFavoris"
-        android:layout_width="wrap_content"
+        android:id="@+id/filmVoteAverage"
+        android:layout_width="365dp"
         android:layout_height="wrap_content"
         android:layout_margin="10sp"
-        android:background="@color/dark_purple"
-        android:text="Ajouter aux Favoris"
+        android:background="@drawable/shape_round"
+        android:text="Moyenne de vote"
         android:textColor="@color/white"
         android:textSize="20sp"
-        tools:layout_editor_absoluteX="65dp"
-        tools:layout_editor_absoluteY="786dp" />
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="373dp" />
+
+    <TextView
+        android:id="@+id/filmReleaseDate"
+        android:layout_width="365dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="10sp"
+        android:background="@drawable/shape_round"
+        android:text="Date de sortie"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        tools:layout_editor_absoluteX="12dp"
+        tools:layout_editor_absoluteY="373dp" />
 
 
 </LinearLayout>
