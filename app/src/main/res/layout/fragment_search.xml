@@ -5,7 +5,8 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@android:color/transparent"
+
     >
 
     <androidx.appcompat.widget.SearchView
@@ -24,8 +25,10 @@
         android:id="@+id/listViewFilm"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="1sp"
+        android:layout_margin="0sp"
         tools:listitem="@layout/item_pop_film"
+        android:background="@color/light_purple"
+        android:visibility="gone"
         />
 
 </LinearLayout>

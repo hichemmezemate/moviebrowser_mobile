@@ -1,3 +1,4 @@
+/*
 package com.example.moviebrowser.models;
 
 import android.content.Context;
@@ -7,17 +8,19 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-import com.example.moviebrowser.R;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.moviebrowser.R;
 import com.example.moviebrowser.services.Api;
 
 import java.util.ArrayList;
 
-public class FilmAdapter extends BaseAdapter {
+public class PopularAdapter extends RecyclerView.Adapter<PopularAdapter.ViewHolder> {
     private ArrayList<Film> films;
     private Context context;
 
-    public FilmAdapter(ArrayList<Film> films, Context context) {
+    public PopularAdapter(ArrayList<Film> films, Context context) {
         this.films = films;
         this.context = context;
     }
@@ -44,15 +47,18 @@ public class FilmAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView==null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.item_pop_film, parent, false);
+            convertView = LayoutInflater.from(context).inflate(R.layout.item_film_card, parent, false);
         }
 
-        TextView textViewName= convertView.findViewById(R.id.filmItemTitle);
+        //System.out.println(">>>>>>>>>>>> : " +films.get(position).getTitle());
+
+        TextView textViewName= convertView.findViewById(R.id.popFilmText);
         textViewName.setText(films.get(position).getTitle()+ "");
 
-        ImageView imageView= convertView.findViewById(R.id.posterFilm);
-        Api.loadFilmPoster(context, films.get(position).getPoster_path(), imageView, "92");
+        ImageView imageView= convertView.findViewById(R.id.popFilmImage);
+        Api.loadFilmPoster(context, films.get(position).getPoster_path(), imageView);
 
         return convertView;
     }
 }
+*/

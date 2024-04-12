@@ -1,6 +1,7 @@
 package com.example.moviebrowser.fragments;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,7 +23,7 @@ import com.example.moviebrowser.services.SearchObserver;
 
 import java.util.ArrayList;
 
-public class FilmFragment extends Fragment implements SearchView.OnQueryTextListener, SearchObserver, AdapterView.OnItemClickListener{
+public class FilmFragment extends Fragment implements SearchView.OnQueryTextListener, SearchObserver, AdapterView.OnItemClickListener, SearchView.OnCloseListener {
 
     private SearchView searchView;
     private ListView listView;
@@ -43,6 +44,8 @@ public class FilmFragment extends Fragment implements SearchView.OnQueryTextList
 
         searchView = v.findViewById(R.id.searchViewMain);
         searchView.setOnQueryTextListener(this);
+        searchView.setOnCloseListener(this);
+
 
         listView= v.findViewById(R.id.listViewFilm);
         films= new ArrayList<Film>();
@@ -62,22 +65,36 @@ public class FilmFragment extends Fragment implements SearchView.OnQueryTextList
 
     @Override
     public boolean onQueryTextChange(String newText) {
+        if (TextUtils.isEmpty(newText)) {
+            listView.setAdapter(null);
+            listView.setVisibility(View.GONE);
+
+        }
         return false;
     }
 
+
     @Override
     public void onReceiveFilmInfo(Film film) {
+        listView.setVisibility(View.VISIBLE);
+        System.out.println("OnRECEIVE");
         if(!films.contains(film)){
             films.add(film);
             adapter= new FilmAdapter(films, getContext());
             listView.setAdapter(adapter);
         }
-
-        Log.d("FILMS", films+"");
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
         listener.onReceiveFilmInfo(films.get(position));
+    }
+
+    @Override
+    public boolean onClose() {
+        System.out.println("CLOSED");
+        return false;
+
     }
 }
